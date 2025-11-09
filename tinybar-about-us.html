@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tiny Bar</title> 
+  <link rel="stylesheet" href="tinybar-about-us.css">
+</head>
+<body>
+  <div class="container">
+    <div class="about-us">
+      <h2>About Our Restaurant</h2>
+      <p>Dobrodošli u Tiny Bar – Vaša adresa za zdravu ishranu i kvalitetan život!<br>
+          U vremenu brzog tempa života, kada zdravlje postaje prioritet, Tiny Bar je tu da vam pruži ono najbolje – uravnoteženu, svežu i nutritivno bogatu hranu, pripremljenu sa pažnjom i ljubavlju. Naša misija je jednostavna: da zdrav stil života učinimo dostupnim svima – kod kuće, na poslu ili u pokretu🍃.<br> 
+          Hrana kao lek, energija i uživanje
+          Svako jelo koje izađe iz naše kuhinje pažljivo je osmišljeno kako bi vaše telo dobilo sve što mu je potrebno – vitamine, minerale, vlakna i čistu energiju. Koristimo isključivo prirodne sastojke, bez aditiva i veštačkih dodataka. Na jelovniku se nalaze:
+          Obroci bogati proteinima za sportiste i aktivne ljude
+          Niskokalorična jela za one koji žele da smršaju na zdrav način
+          Veganske i vegetarijanske opcije
+          Detoks salate i hladno ceđeni sokovi
+          Slatkiši bez šećera – jer zdravo može biti i slatko!<br> 
+          Dostava na vašu adresu 🚴 – Zdravlje stiže pravo do vaših vrata
+          Znamo da je vreme dragoceno. Zato naš tim brze i pouzdane dostave donosi vaše obroke gde god da se nalazite. Samo naručite online ili telefonom – a mi se brinemo da hrana stigne sveža i ukusna, kao da ste je sami pripremili.
+          Zajedno gradimo zajednicu zdravih i ispunjenih ljudi
+          Tiny Bar nije samo restoran, već pokret  🌟.<br>Naš cilj je da inspirišemo što više ljudi da naprave korak ka zdravijem načinu života. Kroz radionice, edukacije, promotivne događaje i društvene mreže, delimo znanje, recepte i savete – jer zdravlje nije trend, već životni stil.<br>
+          Naši zaposleni 👩‍🍳 – Srce našeg uspeha
+          Iza svakog tanjira stoji tim posvećenih ljudi koji veruju u ono što rade. Naši kuvari, nutricionisti i dostavljači svakodnevno daju maksimum kako biste vi bili zadovoljni. Takođe,     otvoreni smo za zapošljavanje novih članova tima koji dele našu strast za zdravom ishranom i pozitivnom energijom. Ako želite da budete deo naše priče – javite nam se!
+          ❤️<br>Zdravlje počinje izborom – izaberite Tiny Bar
+          Posetite nas, probajte naše obroke, pridružite se zajednici koja brine o sebi i drugima. Jer zdrav život počinje sa onim što stavimo na tanjir – a mi smo tu da vam svaki zalogaj učinimo vrednim.</p>
+    </div>
+
+<div class="slider-wrapper">
+  <button class="slider-btn left" onclick="scrollSlider(this, -300)">‹</button>
+  <div class="image-slider">
+    <img src="images/image4.png" alt="1">
+    <img src="images/image5.png" alt="2">
+    <img src="images/image6.png" alt="3">
+    <img src="images/image7.png" alt="4">
+    <img src="images/image4.png" alt="5">
+    <img src="images/image4.png" alt="5">
+    <img src="images/image5.png" alt="5">
+    <img src="images/image6.png" alt="5">
+  </div>
+  <button class="slider-btn right" onclick="scrollSlider(this, 300)">›</button>
+</div>
+
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <p><strong>Address:</strong> Simina 33, Belgrade, Serbia</p>
+      <p class="second_location"><strong></strong> Gandijeva 44, Belgrade, Serbia</p>
+      <p class="contact_information"><strong>Phone:</strong> +381 64 123 4567</p>
+      <p class="contact_information"><strong>Email:</strong> contact@tinybar.rs</p>
+      <p class="contact_information"><strong>Working Hours:</strong> Monday - Saturday: 8:00 AM - 00:00 PM</p>
+    </div>
+
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message..." required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+  <script>
+  function scrollSlider(button, amount) {
+    const slider = button.parentElement.querySelector('.image-slider');
+    slider.scrollBy({ left: amount, behavior: 'smooth' });
+  }
+  </script>
+</body>
+</html>
