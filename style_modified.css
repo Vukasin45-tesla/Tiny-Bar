@@ -1738,3 +1738,253 @@ body {
 }
 
 
+
+/* === Footer redesign: pastel beach theme === */
+.footer {
+  position: relative;
+  overflow: hidden;
+  padding: 3.25rem 0 2.2rem;
+  background: linear-gradient(135deg, #ffff99 0%, #ffdb99 48%, #ff9999 100%);
+  border-top: 2px solid rgba(255, 153, 153, 0.55);
+  color: #5f3a32;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 12% 16%, rgba(255, 255, 153, 0.45), transparent 45%),
+    radial-gradient(circle at 86% 72%, rgba(255, 153, 153, 0.3), transparent 42%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer__waves {
+  position: absolute;
+  inset: auto -12% 0;
+  height: 180px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.footer__wave {
+  position: absolute;
+  left: -5%;
+  width: 110%;
+  border-radius: 50% 50% 0 0;
+  transform-origin: center bottom;
+}
+
+.footer__wave--one {
+  bottom: -20px;
+  height: 105px;
+  background: rgba(255, 255, 153, 0.8);
+  animation: oceanWave 8.8s ease-in-out infinite;
+}
+
+.footer__wave--two {
+  bottom: -34px;
+  height: 118px;
+  background: rgba(255, 219, 153, 0.78);
+  animation: oceanWave 10.4s ease-in-out infinite reverse;
+}
+
+.footer__wave--three {
+  bottom: -48px;
+  height: 130px;
+  background: rgba(255, 153, 153, 0.55);
+  animation: oceanWave 12s ease-in-out infinite;
+}
+
+@keyframes oceanWave {
+  0%,
+  100% {
+    transform: translateX(-1.5%) translateY(0);
+  }
+  50% {
+    transform: translateX(1.8%) translateY(-10px);
+  }
+}
+
+.footer__island {
+  position: absolute;
+  right: clamp(0.6rem, 2.8vw, 2.2rem);
+  bottom: 44px;
+  width: 150px;
+  height: 100px;
+  z-index: 1;
+  pointer-events: none;
+  animation: islandFloat 6s ease-in-out infinite;
+}
+
+.footer__island-sand {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 44px;
+  border-radius: 60% 40% 48% 52%;
+  background: linear-gradient(130deg, #ffdb99, #ffff99 65%, #ffdb99);
+  box-shadow: 0 10px 18px rgba(109, 76, 50, 0.16);
+}
+
+.footer__palm-trunk {
+  position: absolute;
+  left: 72px;
+  bottom: 24px;
+  width: 7px;
+  height: 50px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #b57b4c, #8f5e36);
+  transform: rotate(20deg);
+}
+
+.footer__palm-leaf {
+  position: absolute;
+  left: 72px;
+  bottom: 66px;
+  width: 45px;
+  height: 18px;
+  border-radius: 80% 20% 80% 25%;
+  background: linear-gradient(90deg, #ff9999, #ffff99);
+  transform-origin: left center;
+}
+
+.footer__palm-leaf--one {
+  transform: rotate(-30deg);
+}
+
+.footer__palm-leaf--two {
+  width: 52px;
+  transform: rotate(2deg);
+}
+
+.footer__palm-leaf--three {
+  width: 43px;
+  transform: rotate(34deg);
+}
+
+@keyframes islandFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.footer__grid {
+  position: relative;
+  z-index: 2;
+}
+
+.footer__brand-main p,
+.footer__info p,
+.footer__social span {
+  color: #7a4d42;
+}
+
+.footer__links h4,
+.footer__info h4,
+.footer__brand-main h3,
+.footer strong,
+.footer p,
+.footer li {
+  color: #5f3a32 !important;
+  text-shadow: none !important;
+  animation: none !important;
+}
+
+.footer__chip {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 153, 153, 0.55);
+}
+
+.footer__chip span {
+  background: rgba(255, 219, 153, 0.7);
+  border: 1px solid rgba(255, 153, 153, 0.45);
+  color: #7a4d42;
+}
+
+.footer__link-list li,
+.footer__info p,
+.footer__brand-main,
+.footer__social {
+  border: 1px solid rgba(255, 153, 153, 0.55);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.34);
+  padding: 0.55rem 0.75rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.footer__links ul {
+  gap: 0.55rem;
+}
+
+.footer__links a {
+  display: block;
+  border: 1px solid rgba(255, 153, 153, 0.7);
+  border-radius: 10px;
+  padding: 0.45rem 0.65rem;
+  background: rgba(255, 255, 153, 0.34);
+  color: #6b4238 !important;
+  text-shadow: none !important;
+}
+
+.footer__links a::after {
+  display: none;
+}
+
+.footer__links a:hover,
+.footer__link-list li:hover,
+.footer__info p:hover,
+.footer__brand-main:hover,
+.footer__social:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(122, 77, 66, 0.2);
+}
+
+.footer__icons a {
+  border: 2px solid rgba(255, 153, 153, 0.75);
+  background: rgba(255, 255, 153, 0.72);
+  color: #6d433a;
+}
+
+.footer__icons a:hover {
+  border-color: #ff9999;
+  background: #ffdb99;
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 8px 16px rgba(122, 77, 66, 0.28);
+}
+
+@media (max-width: 900px) {
+  .footer__island {
+    width: 118px;
+    height: 80px;
+    right: 0.7rem;
+    bottom: 36px;
+  }
+
+  .footer__island-sand {
+    height: 34px;
+  }
+
+  .footer__palm-trunk {
+    left: 58px;
+    bottom: 18px;
+    height: 42px;
+  }
+
+  .footer__palm-leaf {
+    left: 59px;
+    bottom: 52px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__island {
+    opacity: 0.65;
+  }
+}
+
