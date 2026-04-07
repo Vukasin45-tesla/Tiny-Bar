@@ -856,9 +856,9 @@ body {
   overflow: hidden;
   background: linear-gradient(
     180deg,
-    #f7fff7 0%,
-    #ffffff 55%,
-    #e8f6eb 100%
+    #ccffcc 0%,
+    #ffdd99 55%,
+    #e6e6e6 100%
   );
   color: #1f3b2a;
   padding: 2.8rem 0 1.4rem;
@@ -873,12 +873,12 @@ body {
   height: 220px;
   background: radial-gradient(
       circle at 10% 0%,
-      rgba(246, 183, 30, 0.28),
+      rgba(255, 221, 153, 0.28),
       transparent 60%
     ),
     radial-gradient(
       circle at 80% 20%,
-      rgba(38, 125, 52, 0.22),
+      rgba(230, 230, 230, 0.32),
       transparent 60%
     );
   opacity: 0.7;
@@ -1534,7 +1534,7 @@ body {
 }
 
 .footer::after{
-  background: rgba(230,230,230,.75);
+  background: rgba(204,255,204,.75);
   bottom: -240px;
   right: -240px;
   animation: footerBlob2 28s linear infinite alternate;
