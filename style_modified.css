@@ -849,6 +849,86 @@ body {
   opacity: 1;
 }
 
+/* MODERNI RESPONSIVE SLIDER (telefon + tablet) */
+.gallery-slider {
+  display: none;
+  position: relative;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e1ebe3;
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  padding: 0.85rem;
+}
+
+.gallery-slider__track {
+  display: flex;
+  transition: transform 0.4s ease;
+  touch-action: pan-y;
+}
+
+.gallery-slide {
+  min-width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: clamp(220px, 52vw, 340px);
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #285f36;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.gallery-slider__arrow--prev {
+  left: 1.15rem;
+}
+
+.gallery-slider__arrow--next {
+  right: 1.15rem;
+}
+
+.gallery-slider__dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 0.75rem;
+}
+
+.gallery-slider__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: #c3d4c8;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.gallery-slider__dot.is-active {
+  background: #2f7f40;
+  transform: scale(1.35);
+}
+
 /* FOOTER – svetao, prilagođen sajtu */
 
 .footer {
@@ -1081,6 +1161,16 @@ body {
   color: #8a8a8a;
 }
 
+@media (max-width: 1023px) {
+  .gallery-grid {
+    display: none;
+  }
+
+  .gallery-slider {
+    display: block;
+  }
+}
+
 /* FOOTER RESPONSIVE */
 
 @media (max-width: 960px) {
@@ -1172,6 +1262,23 @@ body {
 
   .gallery-item img {
     max-height: 220px;
+  }
+
+  .gallery-slider {
+    padding: 0.6rem;
+  }
+
+  .gallery-slider__arrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .gallery-slider__arrow--prev {
+    left: 0.65rem;
+  }
+
+  .gallery-slider__arrow--next {
+    right: 0.65rem;
   }
 }
 /* =========================================================
