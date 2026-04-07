@@ -319,31 +319,70 @@
             <h2>Galerija</h2>
           </div>
 
-          <div class="gallery-grid">
+          <div class="gallery-grid" aria-hidden="true">
             <figure class="gallery-item">
-              <img src="photos/image11.jpg" alt="Obrok 1" />
+              <img src="image11.jpg" alt="Healthy bowl sa avokadom" />
             </figure>
             <figure class="gallery-item">
-              <img src="photos/image3.jpeg" alt="Obrok 2" />
+              <img src="image3.jpeg" alt="Voćni smoothie u čaši" />
             </figure>
             <figure class="gallery-item">
-              <img src="photos/image5.png" alt="Obrok 3" />
+              <img src="image5.png" alt="Sveža salata" />
             </figure>
             <figure class="gallery-item">
-              <img src="photos/image7.jpg" alt="Obrok 4" />
+              <img src="image7.jpg" alt="Zdrav doručak sa voćem" />
             </figure>
             <figure class="gallery-item">
-              <img src="photos/image12.jpg" alt="Obrok 5" />
+              <img src="image12.jpg" alt="Proteinski obrok" />
             </figure>
             <figure class="gallery-item">
-              <img src="photos/image8.jpg" alt="Obrok 6" />
+              <img src="image8.jpg" alt="Hladno ceđeni sok" />
             </figure>
             <figure class="gallery-item">
-              <img src="photos/image4.png" alt="Obrok 7" />
+              <img src="image4.png" alt="Dekorisana činija" />
             </figure>
             <figure class="gallery-item">
-              <img src="photos/image6.png" alt="Obrok 8" />
+              <img src="image6.png" alt="Lagani fit obrok" />
             </figure>
+          </div>
+
+          <div class="gallery-slider" data-gallery-slider>
+            <button class="gallery-slider__arrow gallery-slider__arrow--prev" type="button" aria-label="Prethodna slika" data-slide-prev>
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+
+            <div class="gallery-slider__track" data-slide-track>
+              <figure class="gallery-slide is-active">
+                <img src="image11.jpg" alt="Healthy bowl sa avokadom" />
+              </figure>
+              <figure class="gallery-slide">
+                <img src="image3.jpeg" alt="Voćni smoothie u čaši" />
+              </figure>
+              <figure class="gallery-slide">
+                <img src="image5.png" alt="Sveža salata" />
+              </figure>
+              <figure class="gallery-slide">
+                <img src="image7.jpg" alt="Zdrav doručak sa voćem" />
+              </figure>
+              <figure class="gallery-slide">
+                <img src="image12.jpg" alt="Proteinski obrok" />
+              </figure>
+              <figure class="gallery-slide">
+                <img src="image8.jpg" alt="Hladno ceđeni sok" />
+              </figure>
+              <figure class="gallery-slide">
+                <img src="image4.png" alt="Dekorisana činija" />
+              </figure>
+              <figure class="gallery-slide">
+                <img src="image6.png" alt="Lagani fit obrok" />
+              </figure>
+            </div>
+
+            <button class="gallery-slider__arrow gallery-slider__arrow--next" type="button" aria-label="Sledeća slika" data-slide-next>
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+
+            <div class="gallery-slider__dots" data-slide-dots aria-label="Navigacija kroz galeriju"></div>
           </div>
         </div>
       </section>
@@ -455,6 +494,74 @@
           )
             ? "Prikaži manje"
             : "Pročitaj više";
+        });
+      }
+
+      // Responsivni slider za galeriju (tablet + telefon)
+      const gallerySlider = document.querySelector("[data-gallery-slider]");
+      const galleryTrack = document.querySelector("[data-slide-track]");
+      const slidePrev = document.querySelector("[data-slide-prev]");
+      const slideNext = document.querySelector("[data-slide-next]");
+      const dotsWrap = document.querySelector("[data-slide-dots]");
+
+      if (gallerySlider && galleryTrack && dotsWrap && slidePrev && slideNext) {
+        const slides = Array.from(galleryTrack.children);
+        let currentIndex = 0;
+
+        const renderDots = () => {
+          dotsWrap.innerHTML = "";
+          slides.forEach((_, index) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "gallery-slider__dot";
+            dot.setAttribute("aria-label", `Idi na sliku ${index + 1}`);
+            dot.dataset.slideIndex = index;
+            if (index === currentIndex) dot.classList.add("is-active");
+            dotsWrap.appendChild(dot);
+          });
+        };
+
+        const updateSlider = (targetIndex) => {
+          currentIndex = (targetIndex + slides.length) % slides.length;
+
+          galleryTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+          slides.forEach((slide, index) => {
+            slide.classList.toggle("is-active", index === currentIndex);
+          });
+
+          dotsWrap.querySelectorAll(".gallery-slider__dot").forEach((dot, index) => {
+            dot.classList.toggle("is-active", index === currentIndex);
+          });
+        };
+
+        renderDots();
+        updateSlider(0);
+
+        slidePrev.addEventListener("click", () => updateSlider(currentIndex - 1));
+        slideNext.addEventListener("click", () => updateSlider(currentIndex + 1));
+
+        dotsWrap.addEventListener("click", (event) => {
+          const target = event.target.closest(".gallery-slider__dot");
+          if (!target) return;
+          updateSlider(Number(target.dataset.slideIndex));
+        });
+
+        let startX = 0;
+        let deltaX = 0;
+
+        galleryTrack.addEventListener("touchstart", (event) => {
+          startX = event.touches[0].clientX;
+          deltaX = 0;
+        }, { passive: true });
+
+        galleryTrack.addEventListener("touchmove", (event) => {
+          deltaX = event.touches[0].clientX - startX;
+        }, { passive: true });
+
+        galleryTrack.addEventListener("touchend", () => {
+          if (Math.abs(deltaX) < 40) return;
+          updateSlider(deltaX > 0 ? currentIndex - 1 : currentIndex + 1);
         });
       }
     </script>
