@@ -849,56 +849,6 @@ body {
   opacity: 1;
 }
 
-/* FOOTER – svetao, prilagođen sajtu */
-
-.footer {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(
-    180deg,
-    #f7fff7 0%,
-    #ffffff 55%,
-    #e8f6eb 100%
-  );
-  color: #1f3b2a;
-  padding: 2.8rem 0 1.4rem;
-  border-top: 1px solid var(--border);
-}
-
-/* nežan “glow” u pozadini */
-
-.footer__glow {
-  position: absolute;
-  inset: -40px -25% auto;
-  height: 220px;
-  background: radial-gradient(
-      circle at 10% 0%,
-      rgba(246, 183, 30, 0.28),
-      transparent 60%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(38, 125, 52, 0.22),
-      transparent 60%
-    );
-  opacity: 0.7;
-  filter: blur(10px);
-  animation: footerGlow 14s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes footerGlow {
-  0% {
-    transform: translateX(-4%) translateY(4%);
-    opacity: 0.55;
-  }
-  100% {
-    transform: translateX(6%) translateY(-2%);
-    opacity: 0.9;
-  }
-}
-
 .footer__grid {
   position: relative;
   z-index: 1;
@@ -1079,24 +1029,6 @@ body {
   padding: 0.85rem 1.25rem 0.9rem;
   font-size: 0.8rem;
   color: #8a8a8a;
-}
-
-/* FOOTER RESPONSIVE */
-
-@media (max-width: 960px) {
-  .footer__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .footer__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer__brand-main {
-    align-items: flex-start;
-  }
 }
 
 /* RESPONSIVE */
@@ -1564,70 +1496,10 @@ body {
   z-index: 1;
 }
 
-/* Lepši tipografski “brand” */
-.footer .brand{
-  color: #ffffff;
-  font-weight: 700;
-  letter-spacing: .02em;
-  font-size: 1.05rem;
-  margin-bottom: .35rem;
-}
-
-/* Naslovi kolona */
-.footer .foot-title{
-  font-weight: 650;
-  color: #ffffff;
-  margin-bottom: .75rem;
-  letter-spacing: .02em;
-}
-
-/* Muted tekst – trenutno ti var(--muted) nije definisan stabilno,
-   pa ovde forsiramo da izgleda ispravno */
-.footer .muted{
-  color: rgba(229,231,235,.72);
-}
-
-/* Kontakt kv u footeru (koristi tvoju .kv strukturu) */
-.footer .kv{
-  color: rgba(229,231,235,.86);
-}
-
-/* Social chip (ti već koristiš .chip u footeru) */
-.footer .chip{
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .55rem .85rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.18);
-  color: rgba(255,255,255,.92);
-  transition: transform .2s ease, border-color .2s ease, background .2s ease;
-}
-
-.footer .chip:hover{
-  transform: translateY(-2px);
-  border-color: rgba(251,191,36,.55);
-  background: rgba(0,0,0,.28);
-}
-
-/* Malo “prostor/ritam” u gridu na mobilnom */
-.footer .grid-3{
-  gap: 1.6rem;
-}
-
 /* Desktop raspored ostaje tvoj (1.2fr 1fr 1fr) */
 @media (min-width: 800px){
   .footer{
     padding: 3.25rem 0 2.5rem;
-  }
-}
-
-
-@media (max-width: 880px) {
-  .feature-card Dostava{
-    position: relative;
-    left: -50px;
   }
 }
 
@@ -1736,5 +1608,4 @@ body {
 .footer h4 {
   animation: neonPulse 2.5s ease-in-out infinite alternate;
 }
-
 
